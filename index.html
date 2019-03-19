@@ -25,6 +25,8 @@
 
 
 
+    <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+
 
 
 
@@ -163,12 +165,7 @@
 
     <style>
       body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
+        background-image: url(/img/bg.png);
       }
     </style>
 
@@ -315,8 +312,8 @@
 <div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
 
     <!-- Pic & Slogan -->
-    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/daily_pic.png)">
-        <p class="index-top-block-slogan"><a href="#">
+    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/zhw9.png)">
+        <p class="index-top-block-slogan"><a href>
         
             
                 Hi, nice to meet you
@@ -329,7 +326,7 @@
     <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
         <!-- Author Avatar -->
         <div id="author-avatar">
-            <img src="/img/avatar.png" width="32px" height="32px" alt="avatar">
+            <img src="/img/ch3.png" width="32px" height="32px" alt="avatar">
         </div>
         <div>
             <strong>yulifunky</strong>
@@ -342,30 +339,29 @@
 
     <!-- Search -->
     
-    <!-- Google -->
+
+
+
+
+    <!-- Local -->
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action>
         <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
             <i class="material-icons mdl-color-text--white" role="presentation">search</i>
         </label>
 
-        <form autocomplete="off" id="search-form" method="get" action="//google.com/search" accept-charset="UTF-8" class="mdl-textfield__expandable-holder" target="_blank">
-            <input class="mdl-textfield__input search-input" type="search" name="q" id="search" placeholder>
+        <form autocomplete="off" id="search-form" class="mdl-textfield__expandable-holder">
+            <input type="text" id="search" class="form-control mdl-textfield__input search-input" name="q" results="0" placeholder>
             <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
-
-            <input type="hidden" name="sitesearch" value="http://yoursite.com">
         </form>
     </div>
-
-
-
-
+    <div id="local-search-result"></div>
 
 
 
     <!-- LOGO -->
     <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
-        <a href="#" target="_blank">
-            <img src="/img/logo.png" alt="logo">
+        <a href="https://choosingone.github.io" target="_blank">
+            <img src="/img/ch3.png" alt="logo">
         </a>
     </div>
 
@@ -383,6 +379,12 @@
             <span class="visuallyhidden">Pages</span>
         </button>
         <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
+            
+                <a class="index_share-link" href="/about" title="关于我">
+                    <li class="mdl-menu__item mdl-js-ripple-effect">
+                        关于我
+                    </li>
+                </a>
             
         </ul>
 
@@ -476,7 +478,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="yulifunky's avatar">
+                <img src="/img/ch3.png" width="44px" height="44px" alt="yulifunky's avatar">
             </div>
             <div>
                 <strong>yulifunky</strong>
@@ -537,7 +539,7 @@
         <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
             <!-- Author Avatar -->
             <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="yulifunky's avatar">
+                <img src="/img/ch3.png" width="44px" height="44px" alt="yulifunky's avatar">
             </div>
             <div>
                 <strong>yulifunky</strong>
@@ -593,7 +595,7 @@
 <aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
     <div id="sidebar-main">
         <!-- Sidebar Header -->
-        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+        <div class="sidebar-header header-cover" style="background-image: url(/img/yinghua.png);">
     <!-- Top bar -->
     <div class="top-bar"></div>
 
@@ -608,7 +610,7 @@
 
     <!-- Sidebar Avatar -->
     <div class="sidebar-image">
-        <img src="/img/avatar.png" alt="yulifunky's avatar">
+        <img src="/img/ch3.png" alt="yulifunky's avatar">
     </div>
 
     <!-- Sidebar Email -->
@@ -626,7 +628,7 @@
         <ul id="settings-dropdown" class="dropdown-menu">
             
                 <li>
-                    <a href="#" target="_blank" title="Email Me">
+                    <a href="mailto:yulifunky@163.com" target="_blank" title="Email Me">
                         
                             <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
                         
@@ -687,6 +689,16 @@
     
 
     <!-- Pages  -->
+    
+        <li>
+            <a href="/about" title="关于我">
+                
+                    <i class="material-icons sidebar-material-icons">person</i>
+                
+                关于我
+            </a>
+        </li>
+        
     
 
     <!-- Article Number  -->
@@ -877,6 +889,9 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
+    <!-- Busuanzi -->
+    <script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 
 
 
@@ -886,6 +901,25 @@ It will not impact the appearance and can give developers a lot of support :)
     
 
     <!-- Local Search-->
+    
+        <script type="text/ls-javascript" id="search-local-js-script">
+    var searchFunc=function(c,a,b){$.ajax({url:c,dataType:"xml",success:function(e){var d=$("entry",e).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get();var g=document.getElementById(a);var f=document.getElementById(b);g.addEventListener("input",function(){var i='<ul class="search-result-list">';var h=this.value.trim().toLowerCase().split(/[\s\-]+/);f.innerHTML="";if(this.value.trim().length<=0){return}d.forEach(function(o){var n=true;var s=[];var t=o.title.trim().toLowerCase();var m=o.content.trim().replace(/<[^>]+>/g,"").toLowerCase();var j=o.url;var u=-1;var q=-1;var p=-1;if(t!==""&&m!==""){h.forEach(function(w,x){u=t.indexOf(w);q=m.indexOf(w);if(u<0&&q<0){n=false}else{if(q<0){q=0}if(x===0){p=q}}})}if(n){i+='<li><a href="'+j+'" class="search-result-title" target="_blank">'+t;var r=o.content.trim().replace(/<[^>]+>/g,"");if(p>=0){var k=p-6;var l=p+6;if(k<0){k=0}if(k===0){l=10}if(l>r.length){l=r.length}var v=r.substr(k,l);h.forEach(function(w){var x=new RegExp(w,"gi");v=v.replace(x,'<em class="search-keyword">'+w+"</em>")});i+='<p class="search-result">'+v+"...</p></a>"}}});f.innerHTML=i})}})};
+</script>
+
+
+        <script type="text/ls-javascript" id="search-input-script">
+            var inputArea = document.querySelector('#search');
+            var getSearchFile = function() {
+                var path = 'search.xml';
+                searchFunc(path, 'search', 'local-search-result');
+            }
+
+            if(inputArea) {
+                inputArea.onfocus = function() {
+                    getSearchFile();
+                }
+            }
+        </script>
     
 
 
