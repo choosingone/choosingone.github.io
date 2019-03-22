@@ -48,7 +48,7 @@
     
     <title>
         
-            tags | 
+            疯狂Java随笔——对象内存控制 | 
         
         YULIFUNKY&#39;S BLOG
     </title>
@@ -59,7 +59,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content>
+    <meta name="keywords" content=",Java">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="YULIFUNKY&#39;S BLOG">
-    <meta name="msapplication-starturl" content="https://choosingone.github.io/tags/">
+    <meta name="msapplication-starturl" content="https://choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="YULIFUNKY&#39;S BLOG">
@@ -230,13 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://choosingone.github.io/tags/">
+    <meta property="og:url" content="https://choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="tags | YULIFUNKY&#39;S BLOG">
+    <meta property="og:title" content="疯狂Java随笔——对象内存控制 | YULIFUNKY&#39;S BLOG">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="Java"> 
 
+    
+        <meta property="article:published_time" content="Fri Mar 22 2019 17:38:12 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 22 2019 18:01:58 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -244,13 +247,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://choosingone.github.io/tags/index.html">
+        <link rel="canonical" href="https://choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/index.html",
+    "headline": "疯狂Java随笔——对象内存控制",
+    "datePublished": "Fri Mar 22 2019 17:38:12 GMT+0800",
+    "dateModified": "Fri Mar 22 2019 18:01:58 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "yulifunky",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/ch3.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "YULIFUNKY&#39;S BLOG",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Java",
+    "description": "",
+}
+</script>
 
 
     
@@ -286,6 +319,38 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对象内存控制"><span class="post-toc-number">1.</span> <span class="post-toc-text">对象内存控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#static关键词"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">static关键词</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#类变量的初始化时机"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">类变量的初始化时机</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用子类重写的方法"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">调用子类重写的方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#父子实例的内存控制"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">父子实例的内存控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继承成员变量和继承方法的区别"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">继承成员变量和继承方法的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内存中的子类实例"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">内存中的子类实例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#final修饰符"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">final修饰符</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
 
 <!-- Layouts -->
 
@@ -312,7 +377,7 @@
         
     
             <p class="article-headline-p">
-                tags
+                疯狂Java随笔——对象内存控制
             </p>
         </div>
 
@@ -331,7 +396,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>yulifunky</strong>
-        <span>3月 19, 2019</span>
+        <span>3月 22, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -349,6 +414,15 @@
 
     <!-- Tags (bookmark) -->
     
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Java/">Java</a>
+    </li></ul>
+    
 
     <!-- Share -->
     
@@ -365,7 +439,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=tags&url=https://choosingone.github.io/tags/index.html&pic=https://choosingone.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=疯狂Java随笔——对象内存控制&url=https://choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/index.html&pic=https://choosingone.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -374,7 +448,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=tags&url=https://choosingone.github.io/tags/index.html&via=yulifunky" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=疯狂Java随笔——对象内存控制&url=https://choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/index.html&via=yulifunky" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -383,7 +457,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://choosingone.github.io/tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -392,7 +466,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://choosingone.github.io/tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -417,7 +491,48 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <h1 id="对象内存控制"><a href="#对象内存控制" class="headerlink" title="对象内存控制"></a>对象内存控制</h1><h2 id="static关键词"><a href="#static关键词" class="headerlink" title="static关键词"></a>static关键词</h2><p>修饰类里定义的成员变量，方法，内部类，初始化块，内部枚举类</p>
+<h2 id="类变量的初始化时机"><a href="#类变量的初始化时机" class="headerlink" title="类变量的初始化时机"></a>类变量的初始化时机</h2><p>类变量的初始时机总是在实例变量的初始化时机之前。</p>
+<p>在类的实例化过程中，类中的定义变量语句和初始化块中的语句总是位于类构造器之前执行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Price</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">static</span> Price INSTANCE = <span class="keyword">new</span> Price(<span class="number">2.8</span>);</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">double</span> initPrice = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">double</span> currentPrice;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Price</span><span class="params">(<span class="keyword">double</span> discount)</span></span>&#123;</span><br><span class="line">        currentPrice = initPrice - discount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(Price.INSTANCE.currentPrice);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码输出结果为 -2.8</p>
+<p><img src="//choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/hexo\myblog\source\_posts\lblcshsj1.png" alt></p>
+<p><img src="//choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/hexo\myblog\source\_posts\lblcshsj2.png" alt></p>
+<p>通过javap反汇编可以看到，初始化类的时候先给INSTANCE，initPrice两个变量分配了内存空间，此时两者的值为null和0，然后先给INSTANCE赋值时，调用new Price(2.8)，创建Price实例，discount为2.8，此时给currentPrice赋值，但是initPrice的值为0，所以最后得到的currentPrice的值为-2.8。然后程序把initPrice的值赋为20，但这时候对INSTANCE的currentPrice实例变量没用了。但是我们手动再创建一个Price实例时，initPrice是有值的，因此得到的结果会是两者之差。</p>
+<h2 id="调用子类重写的方法"><a href="#调用子类重写的方法" class="headerlink" title="调用子类重写的方法"></a>调用子类重写的方法</h2><p>如果父类构造器调用了被子类重写的方法，并且通过子类构造器来创建子类的对象，（显示或隐式）调用了这个父类构造器，就会导致子类的重写方法在子类构造器的所有代码之前被执行，从而导致子类的重写方法访问不到子类的实例变量值的情形。</p>
+<h2 id="父子实例的内存控制"><a href="#父子实例的内存控制" class="headerlink" title="父子实例的内存控制"></a>父子实例的内存控制</h2><h3 id="继承成员变量和继承方法的区别"><a href="#继承成员变量和继承方法的区别" class="headerlink" title="继承成员变量和继承方法的区别"></a>继承成员变量和继承方法的区别</h3><p>示例代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wolf</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> weight;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过javap反编译得到：</p>
+<p><img src="//choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/hexo\myblog\source\_posts\fznckz.png" alt></p>
+<p>由此可以看出：</p>
+<ul>
+<li>当Wolf类继承Animal类时，编译器直接将Animal中的void info()方法转移到了Wolf类中。由此可知，若Wolf类也包含了void info()方法，那么编译器就无法将Animal中的void info()方法转移到了Wolf类中。</li>
+<li>对于Animal类中定义的成员变量name，系统任然将其保留在了Animal类中，并没有将其转移到Wolf类中，这使得父类和子类可以同时拥有同名的实例变量。</li>
+<li>因为继承成员变量和继承方法之间存在这样的区别，所以对于一个引用类型的变量而言，通过该变量来访问其所引用的对象的实例变量时，该实例变量的值取决于声明该变量时类型，而通过该变量来调用其所引用的对象的方法时，该方法行为取决于它所实际引用的对象的类型。</li>
+</ul>
+<h3 id="内存中的子类实例"><a href="#内存中的子类实例" class="headerlink" title="内存中的子类实例"></a>内存中的子类实例</h3><p>创建一个子类实例时，内存中实质上只有一个对象被分配内存空间，但是该内存空间中包含了父类的实例变量值。</p>
+<h2 id="final修饰符"><a href="#final修饰符" class="headerlink" title="final修饰符"></a>final修饰符</h2><ol>
+<li>final修饰变量，被final修饰的变量被赋初始值之后，不能对它重新赋值。<ul>
+<li>final修饰实例变量，必须显式指定初始值，而且只能在如下三个位置指定初始值：<ol>
+<li>定义final实例变量时指定初始值</li>
+<li>在非静态初始块代码中为final实例变量指定初始值</li>
+<li>在构造器中为final实例变量指定初始值</li>
+</ol>
+</li>
+<li>final修饰类变量，必须显式指定初始值，而且只能在如下三个位置指定初始值：<ol>
+<li>定义final类变量时指定初始值</li>
+<li>在静态初始块代码中为final实例变量指定初始值</li>
+</ol>
+</li>
+<li>final修饰的变量在定义时就指定了初始值，而且这个初始值在编译时就可以定下来，那么这个变量会被当做“宏变量”处理。</li>
+<li>字符串缓存池会把曾使用过的字符串直接量进行缓存，之后再定义相同的字符串就会执行“宏替换”，把字符串变量指向缓存池中的值。</li>
+<li>Java在局部内部类（包含匿名内部类）中使用的局部变量，必须使用final修饰（因为内部类可能产生隐式闭包，这将会使局部变量脱离它所在的方法继续存在）</li>
+</ul>
+</li>
+<li>final修饰方法，被final修饰的方法不能被重写。（*Java中用@Override注解修饰的方法必须覆写原来的方法）</li>
+<li>final修饰类，被final修饰的类不能被继承。</li>
+</ol>
+
         
     
 
@@ -442,6 +557,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2019/03/22/疯狂Java随笔——数组内存控制/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -611,6 +734,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
