@@ -238,8 +238,8 @@
     <meta property="og:article:tag" content="Java"> 
 
     
-        <meta property="article:published_time" content="Fri Mar 22 2019 17:38:12 GMT+0800">
-        <meta property="article:modified_time" content="Fri Mar 22 2019 18:01:58 GMT+0800">
+        <meta property="article:published_time" content="Fri Mar 22 2019 22:11:02 GMT+0800">
+        <meta property="article:modified_time" content="Fri Mar 22 2019 22:15:04 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -261,8 +261,8 @@
     "@type": "BlogPosting",
     "mainEntityOfPage": "https://choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/index.html",
     "headline": "疯狂Java随笔——对象内存控制",
-    "datePublished": "Fri Mar 22 2019 17:38:12 GMT+0800",
-    "dateModified": "Fri Mar 22 2019 18:01:58 GMT+0800",
+    "datePublished": "Fri Mar 22 2019 22:11:02 GMT+0800",
+    "dateModified": "Fri Mar 22 2019 22:15:04 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "yulifunky",
@@ -496,14 +496,14 @@
 <p>在类的实例化过程中，类中的定义变量语句和初始化块中的语句总是位于类构造器之前执行。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Price</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="keyword">static</span> Price INSTANCE = <span class="keyword">new</span> Price(<span class="number">2.8</span>);</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">double</span> initPrice = <span class="number">20</span>;</span><br><span class="line">    <span class="keyword">double</span> currentPrice;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Price</span><span class="params">(<span class="keyword">double</span> discount)</span></span>&#123;</span><br><span class="line">        currentPrice = initPrice - discount;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(Price.INSTANCE.currentPrice);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上述代码输出结果为 -2.8</p>
-<p><img src="//choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/hexo\myblog\source\_posts\lblcshsj1.png" alt></p>
-<p><img src="//choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/hexo\myblog\source\_posts\lblcshsj2.png" alt></p>
+<p><img src="//choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/lblcshsj1.png" alt></p>
+<p><img src="//choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/lblcshsj2.png" alt></p>
 <p>通过javap反汇编可以看到，初始化类的时候先给INSTANCE，initPrice两个变量分配了内存空间，此时两者的值为null和0，然后先给INSTANCE赋值时，调用new Price(2.8)，创建Price实例，discount为2.8，此时给currentPrice赋值，但是initPrice的值为0，所以最后得到的currentPrice的值为-2.8。然后程序把initPrice的值赋为20，但这时候对INSTANCE的currentPrice实例变量没用了。但是我们手动再创建一个Price实例时，initPrice是有值的，因此得到的结果会是两者之差。</p>
 <h2 id="调用子类重写的方法"><a href="#调用子类重写的方法" class="headerlink" title="调用子类重写的方法"></a>调用子类重写的方法</h2><p>如果父类构造器调用了被子类重写的方法，并且通过子类构造器来创建子类的对象，（显示或隐式）调用了这个父类构造器，就会导致子类的重写方法在子类构造器的所有代码之前被执行，从而导致子类的重写方法访问不到子类的实例变量值的情形。</p>
 <h2 id="父子实例的内存控制"><a href="#父子实例的内存控制" class="headerlink" title="父子实例的内存控制"></a>父子实例的内存控制</h2><h3 id="继承成员变量和继承方法的区别"><a href="#继承成员变量和继承方法的区别" class="headerlink" title="继承成员变量和继承方法的区别"></a>继承成员变量和继承方法的区别</h3><p>示例代码：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Wolf</span> <span class="keyword">extends</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> weight;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">info</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>通过javap反编译得到：</p>
-<p><img src="//choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/hexo\myblog\source\_posts\fznckz.png" alt></p>
+<p><img src="//choosingone.github.io/2019/03/22/疯狂Java随笔——对象内存控制/fznckz.png" alt></p>
 <p>由此可以看出：</p>
 <ul>
 <li>当Wolf类继承Animal类时，编译器直接将Animal中的void info()方法转移到了Wolf类中。由此可知，若Wolf类也包含了void info()方法，那么编译器就无法将Animal中的void info()方法转移到了Wolf类中。</li>
