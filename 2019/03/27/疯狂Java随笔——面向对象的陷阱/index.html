@@ -48,7 +48,7 @@
     
     <title>
         
-            tags | 
+            疯狂Java随笔——面向对象的陷阱 | 
         
         YULIFUNKY&#39;S BLOG
     </title>
@@ -59,7 +59,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content>
+    <meta name="keywords" content=",Java">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="YULIFUNKY&#39;S BLOG">
-    <meta name="msapplication-starturl" content="https://choosingone.github.io/tags/">
+    <meta name="msapplication-starturl" content="https://choosingone.github.io/2019/03/27/疯狂Java随笔——面向对象的陷阱/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="YULIFUNKY&#39;S BLOG">
@@ -230,13 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://choosingone.github.io/tags/">
+    <meta property="og:url" content="https://choosingone.github.io/2019/03/27/疯狂Java随笔——面向对象的陷阱/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="tags | YULIFUNKY&#39;S BLOG">
+    <meta property="og:title" content="疯狂Java随笔——面向对象的陷阱 | YULIFUNKY&#39;S BLOG">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="Java"> 
 
+    
+        <meta property="article:published_time" content="Wed Mar 27 2019 22:03:10 GMT+0800">
+        <meta property="article:modified_time" content="Wed Mar 27 2019 22:06:21 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -244,13 +247,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://choosingone.github.io/tags/index.html">
+        <link rel="canonical" href="https://choosingone.github.io/2019/03/27/疯狂Java随笔——面向对象的陷阱/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://choosingone.github.io/2019/03/27/疯狂Java随笔——面向对象的陷阱/index.html",
+    "headline": "疯狂Java随笔——面向对象的陷阱",
+    "datePublished": "Wed Mar 27 2019 22:03:10 GMT+0800",
+    "dateModified": "Wed Mar 27 2019 22:06:21 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "yulifunky",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/ch3.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "YULIFUNKY&#39;S BLOG",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Java",
+    "description": "",
+}
+</script>
 
 
     
@@ -286,6 +319,38 @@
 
                     <!-- Post TOC -->
 
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn" class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#面向对象的陷阱"><span class="post-toc-number">1.</span> <span class="post-toc-text">面向对象的陷阱</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#非静态内部类的陷阱"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">非静态内部类的陷阱</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#static关键词"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">static关键词</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#异常捕捉的陷阱"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">异常捕捉的陷阱</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
 
 <!-- Layouts -->
 
@@ -312,7 +377,7 @@
         
     
             <p class="article-headline-p">
-                tags
+                疯狂Java随笔——面向对象的陷阱
             </p>
         </div>
 
@@ -331,7 +396,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>yulifunky</strong>
-        <span>3月 19, 2019</span>
+        <span>3月 27, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -349,6 +414,15 @@
 
     <!-- Tags (bookmark) -->
     
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Java/">Java</a>
+    </li></ul>
+    
 
     <!-- Share -->
     
@@ -365,7 +439,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=tags&url=https://choosingone.github.io/tags/index.html&pic=https://choosingone.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=疯狂Java随笔——面向对象的陷阱&url=https://choosingone.github.io/2019/03/27/疯狂Java随笔——面向对象的陷阱/index.html&pic=https://choosingone.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -374,7 +448,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=tags&url=https://choosingone.github.io/tags/index.html&via=yulifunky" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=疯狂Java随笔——面向对象的陷阱&url=https://choosingone.github.io/2019/03/27/疯狂Java随笔——面向对象的陷阱/index.html&via=yulifunky" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -383,7 +457,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://choosingone.github.io/tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://choosingone.github.io/2019/03/27/疯狂Java随笔——面向对象的陷阱/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -392,7 +466,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=https://choosingone.github.io/tags/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://choosingone.github.io/2019/03/27/疯狂Java随笔——面向对象的陷阱/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -417,7 +491,29 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        
+        <h1 id="面向对象的陷阱"><a href="#面向对象的陷阱" class="headerlink" title="面向对象的陷阱"></a>面向对象的陷阱</h1><h2 id="非静态内部类的陷阱"><a href="#非静态内部类的陷阱" class="headerlink" title="非静态内部类的陷阱"></a>非静态内部类的陷阱</h2><p>非静态内部类不可能有无参构造器——即使系统为非静态内部类提供了一个默认的构造器，此构造器也需要一个外部类的形参。</p>
+<p><strong>非静态内部类的规则</strong>：非静态内部类必须寄生在外部类的实例中，没有外部类的对象，就不可能产生非静态内部类的对象。</p>
+<p><img src="/疯狂Java随笔——面向对象的陷阱/1553678375313.png" alt></p>
+<p>通过javap反编译可以看到非静态内部类的构造方法的第一个形参一定是外部类。</p>
+<h3 id="static关键词"><a href="#static关键词" class="headerlink" title="static关键词"></a>static关键词</h3><p>静态内部类不能访问外部类的非静态成员</p>
+<h3 id="异常捕捉的陷阱"><a href="#异常捕捉的陷阱" class="headerlink" title="异常捕捉的陷阱"></a>异常捕捉的陷阱</h3><p>在实际开发中, 程序中需要打开一些物理资源：</p>
+<ul>
+<li>数据库连接</li>
+<li>网络连接</li>
+<li>磁盘文件</li>
+</ul>
+<p>这些物理资源需要显式去关闭，否则会引起资源泄漏。</p>
+<p>GC只负责回收堆内存中分配的内存，对于程序中打开的物理资源是无能为力的。</p>
+<p><strong>finally块执行流程的规则：</strong></p>
+<p>当程序执行try块，catch块时遇到throw语句时，throw语句会导致该方法立即结束，系统执行throw语句时并不会立即抛出异常，而是去寻找该异常处理流程是否包含finally块。</p>
+<p>如果没有finally块，程序立即抛出异常，如果有则立即执行finally块。</p>
+<p>只有finally块执行完成才会跳回抛出异常，如果finally块中用return语句来结束方法，系统将不会再跳回try和catch块去抛出异常。</p>
+<p>不要在finally块中递归使用可能引起异常的方法，因为这将导致该方法的异常不能被正常抛出。</p>
+<p><strong>catch</strong></p>
+<p>在try块后使用catch块来捕捉多个异常的时候，要遵循（先处理小异常，后处理大异常）捕捉父类异常的catch块都应排在捕捉子类异常的catch块之后，否则会出现编译异常。</p>
+<p>Java 语言规范规定，子类重写父类方法时，不能声明抛出比父类方法类型更多、范围更大的异常。</p>
+<p>也就是说子类方法只能声明抛出父类方法所声明抛出的异常的子类。</p>
+
         
     
 
@@ -442,6 +538,14 @@
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
+    
+        <a href="/2019/03/27/疯狂Java随笔——Java的内存回收/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
     
 </nav>
 
@@ -611,6 +715,14 @@ It will not impact the appearance and can give developers a lot of support :)
 </aside>
 
                     
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
 
                     
 
